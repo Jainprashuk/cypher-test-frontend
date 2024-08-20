@@ -15,7 +15,11 @@ const Main = ({ user }) => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch('https://cypher-test-backend.vercel.app/questions');
+        const response = await fetch('https://cypher-test-backend.vercel.app/questions',{
+          method: 'GET',
+          mode: 'no-cors',
+          credentials: 'include',
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch questions');
         }

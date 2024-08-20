@@ -35,6 +35,7 @@ const Home = () => {
       try {
         const response = await fetch("https://cypher-test-backend.vercel.app/api/check", {
           method: 'GET',
+          mode: 'no-cors',
           credentials: 'include',
         });
         if (!response.ok) {
