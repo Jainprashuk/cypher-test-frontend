@@ -13,6 +13,7 @@ const Login = () => {
     try {
       const response = await fetch("https://cypher-test-backend.vercel.app/auth/login", {
         method: 'POST',
+        mode:'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
