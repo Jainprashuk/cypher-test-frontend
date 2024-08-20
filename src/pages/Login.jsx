@@ -20,11 +20,9 @@ const Login = () => {
         credentials: 'include', // Include credentials (cookies)
       });
   
-      // Check if the response status is OK
       if (response.ok) {
         const data = await response.json();
         navigate('/home');
-        // Optionally handle response data here
       } else {
         const data = await response.json();
         setError(data.message);
@@ -34,6 +32,7 @@ const Login = () => {
       setError('Something went wrong. Please try again.');
     }
   };
+  
   
 
   return (
