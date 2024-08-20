@@ -13,19 +13,20 @@ const Login = () => {
     try {
       const response = await fetch("https://cypher-test-backend.vercel.app/auth/login", {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({ email, password }),
-        credentials: 'include'
+        credentials: 'include', // Include credentials (cookies)
       });
-
-      const data = await response.json();
-
-      if (response.status===200) {
+  
+      // Check if the response status is OK
+      if (response.ok) {
+        const data = await response.json();
         navigate('/home');
-        // Redirect to the dashboard or homepage
-        // You might want to update the UI or redirect here
+        // Optionally handle response data here
       } else {
+        const data = await response.json();
         setError(data.message);
       }
     } catch (error) {
@@ -33,6 +34,7 @@ const Login = () => {
       setError('Something went wrong. Please try again.');
     }
   };
+  
 
   return (
     <>
