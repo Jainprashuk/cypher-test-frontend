@@ -35,7 +35,6 @@ const Home = () => {
       try {
         const response = await fetch("https://cypher-test-backend.vercel.app/api/check", {
           method: 'GET',
-          mode: 'no-cors',
           credentials: 'include',
         });
         if (!response.ok) {
@@ -46,7 +45,7 @@ const Home = () => {
       } catch (error) {
         console.error("Error fetching user data", error);
         setError("Failed to fetch user data");
-        navigate("/signup");
+        navigate("/login");
       }
     };
     
